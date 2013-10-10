@@ -66,22 +66,37 @@ public class SudokuSolveTest {
         8, 1, 7, 3, 4, 9, 5, 2, 6,
 	};
 	
-	private int[] solve(int[] board)
-	{
-		return solvre_bd(board);
-	};
 	
-	private int[] solvre_bd(int[] board) {
-		if (isSolved(board))
-			return board;
-		else 
-			solve_lob(next_boards(board));
-		return null;
-	}
 
 	@Test
 	public void test() {
-	
+	 writeBoard(solve(BD4));
+	 //writeBoard(BD4s);
+	}
+
+
+
+	private int[] solve(int[] board) {
+		// TODO Auto-generated method stub
+		return BD1;
+	}
+
+
+
+	private void writeBoard(int[] board) {
+		
+		for(int row = 0; row < 9 ; row++){
+			if (row %3 == 0)
+				System.out.println(" -----------------------");
+			for(int col = 0 ; col < 9 ; col++){
+				if (col % 3 == 0 )
+					System.out.print("| ");
+				System.out.print(board[ row*9 + col] == 0 ? " " : Integer.toString(board[row*9 + col]));
+				System.out.print(" ");
+			}
+			System.out.println("|");
+		}
+		System.out.println(" -----------------------");
 	}
 
 }
