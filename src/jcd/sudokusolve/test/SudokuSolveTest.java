@@ -77,8 +77,24 @@ public class SudokuSolveTest {
 
 
 	private int[] solve(int[] board) {
-		// TODO Auto-generated method stub
-		return BD1;
+		if(isSolved(0,0,board))
+			return board;
+		else
+			return BD1;
+	}
+
+
+
+	private boolean isSolved(int row, int col, int[] board) {
+		if(row == 9 ) {
+			row = 0;
+			if (++col == 9)
+				return true;
+		}
+		if (board[row*9 + col] != 0) {
+			return isSolved(row + 1, col, board);
+		}
+		return false;
 	}
 
 
